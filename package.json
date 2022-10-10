@@ -1,0 +1,30 @@
+{
+  "name": "my-template",
+  "version": "2.0.0",
+  "description": "",
+  "homepage": "https://vladyslavhurzhyi.github.io/my-template",
+  "scripts": {
+    "start": "parcel src/*.html",
+    "build": "parcel build src/*.html --public-url /my-template/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goitacademy/my-template.git"
+  },
+  "keywords": [],
+  "author": "my-template",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vladyslavhurzhyi/my-template/issues"
+  },
+  "dependencies": {
+    "modern-normalize": "^1.1.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.6.0",
+    "parcel": "^2.6.0",
+    "parcel-reporter-clean-dist": "^1.0.4",
+    "posthtml-include": "^1.7.4"
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead"
+}
