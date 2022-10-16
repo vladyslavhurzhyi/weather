@@ -1,3 +1,114 @@
 .main__body {
-  background: #f5f5f5;
+  background: white;
+}
+
+.search {
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
+.search-wrap {
+  position: relative;
+}
+
+.search-input {
+  background: #f4f9fd;
+  border-radius: 8px;
+  width: 100%;
+  height: 40px;
+  padding-left: 51px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #273a58;
+  text-transform: capitalize;
+}
+
+.search-input-svg {
+  position: absolute;
+  margin-top: 8px;
+  margin-left: 12px;
+  margin-bottom: 8px;
+  left: 0;
+}
+
+// _________________weathernow___________
+
+.weather {
+  padding-bottom: 20px;
+}
+
+.weathernow {
+  background: linear-gradient(180deg, #4fa5f1 0%, #19609f 100%);
+  border-radius: 20px;
+  height: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: block;
+  text-align: center;
+}
+
+.weathernow-city {
+  font-weight: 500;
+  font-size: 32px;
+  letter-spacing: -0.24px;
+  color: #ffffff;
+}
+
+.weathernow-date {
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  line-height: calc(16 / 19);
+  color: #ffffff;
+  margin-top: 15px;
+}
+
+.weathernow-day {
+  padding-right: 11px;
+  border-right: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.weathernow-month {
+  padding-left: 11px;
+}
+
+.sunny_icon {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 39px;
+  margin-bottom: 17px;
+}
+
+.weathernow-temp {
+  font-weight: 500;
+  font-size: 72px;
+  line-height: calc(78 / 72);
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.weathernow-sky {
+  font-size: 18px;
+  line-height: calc(26 / 18);
+  letter-spacing: -0.24px;
+  color: #ffffff;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+// _____________By-time______
+.by-time {
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.by-time_hours {
+  font-size: 16px;
+  line-height: calc(19 / 16);
+  letter-spacing: -0.24px;
+  color: rgba(255, 255, 255, 0.64);
 }
