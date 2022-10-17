@@ -1,21 +1,21 @@
 {
-  "name": "my-template",
+  "name": "weather",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://vladyslavhurzhyi.github.io/my-template",
+  "homepage": "https://vladyslavhurzhyi.github.io/weather",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /my-template/"
+    "build": "parcel build src/*.html --public-url /weather/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/goitacademy/my-template.git"
+    "url": "git+https://github.com/goitacademy/weather.git"
   },
   "keywords": [],
-  "author": "my-template",
+  "author": "weather",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/vladyslavhurzhyi/my-template/issues"
+    "url": "https://github.com/vladyslavhurzhyi/weather/issues"
   },
   "dependencies": {
     "modern-normalize": "^1.1.0"
