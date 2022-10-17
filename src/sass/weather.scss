@@ -113,6 +113,10 @@
   margin-bottom: 20px;
 }
 
+.weathernow-line__bottom {
+  margin-top: 20px;
+}
+
 // _____________By-time______
 .by-timeweather {
   display: flex;
@@ -138,5 +142,37 @@
 }
 
 .by-time_temp {
+  color: #ffffff;
+}
+
+// ____________weather-data______
+
+.weather-datablock {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  margin-left: 23px;
+}
+
+.weather-data {
+  flex: 0 0 auto;
+  margin-right: 24px;
+  width: 91px;
+}
+
+.weather-data__name {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: calc(17 / 14);
+  letter-spacing: -0.24px;
+  color: rgba(255, 255, 255, 0.64);
+  margin-bottom: 8px;
+}
+
+.weather-data__value {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: calc(22 / 18);
+  letter-spacing: -0.24px;
   color: #ffffff;
 }
