@@ -243,7 +243,7 @@
 
 .wper-day-list {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .wper-day-item {
@@ -257,10 +257,6 @@
   align-items: center;
 }
 
-.wper-day-item:not(:last-child) {
-  margin-right: 24px;
-}
-
 .wperday-data {
   display: flex;
   align-items: center;
@@ -270,8 +266,8 @@
   font-size: 14px;
   line-height: calc(22 / 14);
   color: #273a58;
-  padding-left: 15.5px;
-  padding-right: 15.5px;
+  // padding-left: 15.5px;
+  // padding-right: 15.5px;
 }
 
 .wper-day-item__temp {
