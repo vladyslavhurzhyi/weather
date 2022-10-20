@@ -148,6 +148,15 @@
   flex-wrap: nowrap;
   overflow-x: auto;
   margin-left: 23px;
+
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.by-timeweather::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 
 .by-time {
