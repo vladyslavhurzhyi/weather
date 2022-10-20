@@ -11,6 +11,20 @@
   transform: translateY(220px);
 }
 
+.searchOnTop {
+  position: relative;
+  transform: none;
+}
+
+@keyframes searchOnTop {
+  0% {
+    transform: translateY(220px);
+  }
+  100% {
+    transform: translateY(-15px);
+  }
+}
+
 .search-wrap {
   position: relative;
 }

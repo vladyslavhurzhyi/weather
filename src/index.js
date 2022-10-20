@@ -25,7 +25,7 @@ const handleSubmit = async event => {
 refs.searchFormRef.addEventListener('submit', handleSubmit);
 
 async function weatherNow() {
-  refs.searchSectionRef.style.position = 'relative';
+  refs.searchSectionRef.classList.add('searchOnTop');
   refs.spinnerRef.classList.remove('is-hidden');
   try {
     const data = await weatherApi.getWeatherNow();
