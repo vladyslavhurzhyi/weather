@@ -11,20 +11,6 @@
   transform: translateY(220px);
 }
 
-.searchAnimation {
-  animation: searchOnTop 0.8s linear;
-  animation-fill-mode: forwards;
-}
-
-@keyframes searchOnTop {
-  0% {
-    transform: translateY(220px);
-  }
-  100% {
-    transform: translateY(-15px);
-  }
-}
-
 .search-wrap {
   position: relative;
 }

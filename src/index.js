@@ -25,7 +25,6 @@ const handleSubmit = async event => {
 refs.searchFormRef.addEventListener('submit', handleSubmit);
 
 async function weatherNow() {
-  refs.searchSectionRef.classList.add('searchAnimation');
   refs.searchSectionRef.style.position = 'relative';
   refs.spinnerRef.classList.remove('is-hidden');
   try {
