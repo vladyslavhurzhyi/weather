@@ -5,4 +5,7 @@ export const refs = {
   weatherNowCityRef: document.querySelector('.weathernow-city'),
   weathernowTempRef: document.querySelector('.weathernow-temp'),
   weathernowSkyRef: document.querySelector('.weathernow-sky'),
+  windValueNowRef: document.querySelector('.js-windValueNow'),
+  humidityValueNow: document.querySelector('.js-humidityValueNow'),
+  pressureValueNow: document.querySelector('.js-pressureValueNow'),
 };

@@ -33,7 +33,10 @@ async function weatherNow() {
 
     refs.weatherNowCityRef.textContent = name;
     refs.weathernowTempRef.textContent = `${Math.round(main.temp)}°C`;
+    refs.humidityValueNow.textContent = `${Math.round(main.humidity)}`;
+    refs.pressureValueNow.textContent = `${Math.round(main.pressure)}`;
     refs.weathernowSkyRef.textContent = weather[0].main;
+    refs.windValueNowRef.textContent = `${Math.round(wind.speed)}`;
   } catch (error) {
     console.log(error);
   }
