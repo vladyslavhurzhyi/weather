@@ -25,8 +25,12 @@ const handleSubmit = async event => {
 refs.searchFormRef.addEventListener('submit', handleSubmit);
 
 async function weatherNow() {
+  refs.searchSectionRef.classList.add('searchAnimation');
+  refs.searchSectionRef.style.position = 'relative';
+  refs.spinnerRef.classList.remove('is-hidden');
   try {
     const data = await weatherApi.getWeatherNow();
+    refs.searchFormRef.reset();
     console.log(data);
 
     const { name, main, weather, wind } = data;
@@ -39,5 +43,14 @@ async function weatherNow() {
     refs.windValueNowRef.textContent = `${Math.round(wind.speed)}`;
   } catch (error) {
     console.log(error);
+  } finally {
+    deleteBlur();
+    refs.spinnerRef.classList.add('is-hidden');
   }
+}
+
+function deleteBlur() {
+  refs.blurRef.forEach(item => {
+    item.classList.remove('blur');
+  });
 }

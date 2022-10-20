@@ -8,4 +8,7 @@ export const refs = {
   windValueNowRef: document.querySelector('.js-windValueNow'),
   humidityValueNow: document.querySelector('.js-humidityValueNow'),
   pressureValueNow: document.querySelector('.js-pressureValueNow'),
+  spinnerRef: document.querySelector('.loader'),
+  blurRef: document.querySelectorAll('.js-blur'),
+  searchSectionRef: document.querySelector('.search'),
 };
