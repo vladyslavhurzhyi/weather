@@ -1,16 +1,24 @@
 <section class="search">
   <div class="container">
     <div class="search-wrap">
-      <input
-        class="search-input"
-        type="text"
-        name="searchQuery"
-        autocomplete="off"
-        placeholder=""
-      />
-      <svg class="search-input-svg" width="18" height="24">
-        <use href="/src/svg/srite.svg#search_icon"></use>
-      </svg>
+      <form class="search-form" id="search-form">
+        <input
+          class="search-input"
+          type="text"
+          name="searchQuery"
+          autocomplete="off"
+          placeholder=""
+        />
+        <svg class="search-input-svg" width="18" height="24">
+          <use href="/src/svg/srite.svg#geo_icon"></use>
+        </svg>
+
+        <button class="btnsearch" type="submit">
+          <svg class="icon-search" width="24" height="24">
+            <use href="/src/svg/srite.svg#icon-search"></use>
+          </svg>
+        </button>
+      </form>
     </div>
   </div>
 </section>
@@ -19,10 +27,10 @@
 <section class="weather">
   <div class="container">
     <div class="weathernow">
-      <p class="weathernow-city">City</p>
+      <p class="weathernow-city"></p>
       <div class="weathernow-date">
-        <p class="weathernow-day">Sunday</p>
-        <p class="weathernow-month">Nov 14</p>
+        <p class="weathernow-day js-dayOfWeek"></p>
+        <p class="weathernow-month js-monthAndDate"></p>
       </div>
       <picture>
         <img
