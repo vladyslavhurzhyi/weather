@@ -26,7 +26,7 @@ refs.searchFormRef.addEventListener('submit', handleSubmit);
 
 async function weatherNow() {
   refs.searchSectionRef.classList.add('searchOnTop');
-  refs.spinnerRef.classList.remove('is-hidden');
+  isHiddenOff();
   try {
     const data = await weatherApi.getWeatherNow();
     refs.searchFormRef.reset();
@@ -52,4 +52,10 @@ function deleteBlur() {
   refs.blurRef.forEach(item => {
     item.classList.remove('blur');
   });
+}
+
+export function isHiddenOff() {
+  refs.spinnerRef.classList.remove('is-hidden');
+  refs.wperDayRef.classList.remove('is-hidden');
+  refs.weatherWeekRef.classList.remove('is-hidden');
 }

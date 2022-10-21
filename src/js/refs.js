@@ -11,4 +11,6 @@ export const refs = {
   spinnerRef: document.querySelector('.loader'),
   blurRef: document.querySelectorAll('.js-blur'),
   searchSectionRef: document.querySelector('.search'),
+  wperDayRef: document.querySelector('.wper-day'),
+  weatherWeekRef: document.querySelector('.weather'),
 };
