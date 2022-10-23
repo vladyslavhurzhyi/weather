@@ -66,7 +66,7 @@ async function weatherFiveDay() {
 
     ///
 
-    renderWeekData(list);
+    // renderWeekData(list);
 
     console.log(list);
   } catch (error) {
