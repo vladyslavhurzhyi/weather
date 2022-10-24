@@ -124,17 +124,11 @@ export function renderTempOnHour(list) {
 export function renderWeekData(list) {
   const dateNow = new Date();
   const formatDate = 'yyyy-MM-dd';
-  const currentDate = format(dateNow, formatDate);
   const in1DaysAfter = format(add(dateNow, { days: 1 }), formatDate);
   const in2DaysAfter = format(add(dateNow, { days: 2 }), formatDate);
   const in3DaysAfter = format(add(dateNow, { days: 3 }), formatDate);
   const in4DaysAfter = format(add(dateNow, { days: 4 }), formatDate);
   const in5DaysAfter = format(add(dateNow, { days: 5 }), formatDate);
-
-  const night = '00:00:00';
-  const morning = '09:00:00';
-  const day = '12:00:00';
-  const evening = '18:00:00';
 
   const allDayOfWeek = [
     in1DaysAfter,
@@ -148,7 +142,7 @@ export function renderWeekData(list) {
     weekDay.push(day.textContent);
   });
   for (let index = 0; index < allDayOfWeek.length; index += 1) {
-    weekDay[index] = String(parseISO(allDayOfWeek[index], 'EEE')).slice(0, 4);
+    weekDay[index] = String(parseISO(allDayOfWeek[index])).slice(0, 4);
   }
   refs.weatherWeekWeekday.forEach((day, index) => {
     day.textContent = weekDay[index];
@@ -164,4 +158,33 @@ export function renderWeekData(list) {
   refs.weatherWeekWeekdate.forEach((item, index) => {
     item.textContent = weekDate[index];
   });
+  ////
+  const night = '00:00:00';
+  const morning = '09:00:00';
+  const day = '12:00:00';
+  const evening = '18:00:00';
+
+  const jsWeekValueMinRef = document.querySelectorAll('.js-week-value-min');
+  const jsWeekValueMaxRef = document.querySelectorAll('.js-week-value-max');
+  weatherWeek(jsWeekValueMinRef, night, allDayOfWeek, list);
+  weatherWeek(jsWeekValueMaxRef, day, allDayOfWeek, list);
+
+  function weatherWeek(referens, timeOfDay, allDayOfWeek, list) {
+    const weatherWeekData = [];
+    list.forEach(data => {
+      allDayOfWeek.forEach(item => {
+        if (data.dt_txt == item + ' ' + timeOfDay) {
+          weatherWeekData.push(data.main.temp_min);
+        }
+      });
+    });
+
+    referens.forEach((item, index) => {
+      if (weatherWeekData[index] > 0) {
+        item.textContent = '+' + String(weatherWeekData[index]).slice(0, 4);
+      } else {
+        item.textContent = String(weatherWeekData[index]).slice(0, 4);
+      }
+    });
+  }
 }

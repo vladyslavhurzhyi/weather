@@ -19,4 +19,5 @@ export const refs = {
   weatherWeekWeekday: document.querySelectorAll('.weather-week-weekday'),
   jsTomorrowDay: document.querySelector('.js-tomorrow-day'),
   weatherWeekWeekdate: document.querySelectorAll('.weather-week-weekdate'),
+  jsWeekValueMin: document.querySelectorAll('.js-week-value-min'),
 };
