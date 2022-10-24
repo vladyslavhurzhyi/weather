@@ -1,5 +1,4 @@
-import el from 'date-fns/esm/locale/el/index.js';
-import { format } from 'date-fns';
+import { format, add, parseISO } from 'date-fns';
 import { WeatherAPI } from './js/API';
 import { setupDate } from './js/date';
 import { refs } from './js/refs';
@@ -65,8 +64,7 @@ async function weatherFiveDay() {
     renderTempOnHour(list);
 
     ///
-
-    // renderWeekData(list);
+    renderWeekData(list);
 
     console.log(list);
   } catch (error) {
@@ -123,24 +121,47 @@ export function renderTempOnHour(list) {
   });
 }
 
-// _____
+export function renderWeekData(list) {
+  const dateNow = new Date();
+  const formatDate = 'yyyy-MM-dd';
+  const currentDate = format(dateNow, formatDate);
+  const in1DaysAfter = format(add(dateNow, { days: 1 }), formatDate);
+  const in2DaysAfter = format(add(dateNow, { days: 2 }), formatDate);
+  const in3DaysAfter = format(add(dateNow, { days: 3 }), formatDate);
+  const in4DaysAfter = format(add(dateNow, { days: 4 }), formatDate);
+  const in5DaysAfter = format(add(dateNow, { days: 5 }), formatDate);
 
-// export function renderWeekData(list) {
-//   const dataNow = list[0].dt;
+  const night = '00:00:00';
+  const morning = '09:00:00';
+  const day = '12:00:00';
+  const evening = '18:00:00';
 
-//   const dataTomorow = dataNow + 86400 * 1000;
+  const allDayOfWeek = [
+    in1DaysAfter,
+    in2DaysAfter,
+    in3DaysAfter,
+    in4DaysAfter,
+    in5DaysAfter,
+  ];
+  const weekDay = [];
+  refs.weatherWeekWeekday.forEach(day => {
+    weekDay.push(day.textContent);
+  });
+  for (let index = 0; index < allDayOfWeek.length; index += 1) {
+    weekDay[index] = String(parseISO(allDayOfWeek[index], 'EEE')).slice(0, 4);
+  }
+  refs.weatherWeekWeekday.forEach((day, index) => {
+    day.textContent = weekDay[index];
+  });
 
-//   console.log(dataTomorow);
-
-//   // const nightTime = '00:00:00';
-//   // const morningTime = '09:00:00';
-//   // const dayTime = '12:00:00';
-//   // const eveningTime = '18:00:00';
-
-//   const dateTomorrowNight = format(
-//     Date(dataTomorow),
-//     'yyyy' + '-' + 'M' + '-' + 'd' + ' ' + '00:00:00'
-//   );
-
-//   console.log(dateTomorrowNight);
-// }
+  const weekDate = [];
+  refs.weatherWeekWeekdate.forEach(item => {
+    weekDate.push(item.textContent);
+  });
+  for (let index = 0; index < allDayOfWeek.length; index += 1) {
+    weekDate[index] = String(parseISO(allDayOfWeek[index])).slice(4, 11);
+  }
+  refs.weatherWeekWeekdate.forEach((item, index) => {
+    item.textContent = weekDate[index];
+  });
+}

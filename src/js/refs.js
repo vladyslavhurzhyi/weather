@@ -17,4 +17,6 @@ export const refs = {
   byTimeHours: document.querySelectorAll('.by-time_hours'),
   byTimeTemp: document.querySelectorAll('.by-time_temp'),
   weatherWeekWeekday: document.querySelectorAll('.weather-week-weekday'),
+  jsTomorrowDay: document.querySelector('.js-tomorrow-day'),
+  weatherWeekWeekdate: document.querySelectorAll('.weather-week-weekdate'),
 };
