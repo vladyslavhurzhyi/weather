@@ -63,8 +63,6 @@ async function weatherFiveDay() {
 
     listFiveDay = list;
 
-    console.log(list);
-
     renderTimeOnHour(list);
 
     // _____
@@ -294,7 +292,6 @@ export function getAndRenderWeatherFour(
     pressureRef,
     currentData
   ) {
-    console.log(currentData);
     if (currentData.main.temp > 0) {
       tempRef.textContent = '+' + currentData.main.temp.toFixed(0) + '℃';
     } else {
