@@ -55,9 +55,16 @@ async function weatherNow() {
   }
 }
 
+let listFiveDay;
+
 async function weatherFiveDay() {
   try {
     const { list } = await weatherApi.getWeatherFiveDay();
+
+    listFiveDay = list;
+
+    console.log(list);
+
     renderTimeOnHour(list);
 
     // _____
@@ -66,7 +73,7 @@ async function weatherFiveDay() {
     ///
     renderWeekData(list);
 
-    console.log(list);
+    /////
   } catch (error) {
     console.log(error);
   }
@@ -121,22 +128,29 @@ export function renderTempOnHour(list) {
   });
 }
 
-export function renderWeekData(list) {
-  const dateNow = new Date();
-  const formatDate = 'yyyy-MM-dd';
-  const in1DaysAfter = format(add(dateNow, { days: 1 }), formatDate);
-  const in2DaysAfter = format(add(dateNow, { days: 2 }), formatDate);
-  const in3DaysAfter = format(add(dateNow, { days: 3 }), formatDate);
-  const in4DaysAfter = format(add(dateNow, { days: 4 }), formatDate);
-  const in5DaysAfter = format(add(dateNow, { days: 5 }), formatDate);
+////////
+//из renderWeekData(list)
 
-  const allDayOfWeek = [
-    in1DaysAfter,
-    in2DaysAfter,
-    in3DaysAfter,
-    in4DaysAfter,
-    in5DaysAfter,
-  ];
+const dateNow = new Date();
+const formatDate = 'yyyy-MM-dd';
+const in1DaysAfter = format(add(dateNow, { days: 1 }), formatDate);
+const in2DaysAfter = format(add(dateNow, { days: 2 }), formatDate);
+const in3DaysAfter = format(add(dateNow, { days: 3 }), formatDate);
+const in4DaysAfter = format(add(dateNow, { days: 4 }), formatDate);
+
+const allDayOfWeek = [in1DaysAfter, in2DaysAfter, in3DaysAfter, in4DaysAfter];
+
+const nightMorDayEven = {
+  night: '00:00:00',
+  morning: '09:00:00',
+  day: '12:00:00',
+  evening: '18:00:00',
+};
+
+let list;
+///////
+
+export function renderWeekData(list) {
   const weekDay = [];
   refs.weatherWeekWeekday.forEach(day => {
     weekDay.push(day.textContent);
@@ -159,15 +173,11 @@ export function renderWeekData(list) {
     item.textContent = weekDate[index];
   });
   ////
-  const night = '00:00:00';
-  const morning = '09:00:00';
-  const day = '12:00:00';
-  const evening = '18:00:00';
 
   const jsWeekValueMinRef = document.querySelectorAll('.js-week-value-min');
   const jsWeekValueMaxRef = document.querySelectorAll('.js-week-value-max');
-  weatherWeek(jsWeekValueMinRef, night, allDayOfWeek, list);
-  weatherWeek(jsWeekValueMaxRef, day, allDayOfWeek, list);
+  weatherWeek(jsWeekValueMinRef, nightMorDayEven.night, allDayOfWeek, list);
+  weatherWeek(jsWeekValueMaxRef, nightMorDayEven.day, allDayOfWeek, list);
 
   function weatherWeek(referens, timeOfDay, allDayOfWeek, list) {
     const weatherWeekData = [];
@@ -181,10 +191,147 @@ export function renderWeekData(list) {
 
     referens.forEach((item, index) => {
       if (weatherWeekData[index] > 0) {
-        item.textContent = '+' + String(weatherWeekData[index]).slice(0, 4);
+        item.textContent = '+' + weatherWeekData[index].toFixed(0) + '℃';
       } else {
-        item.textContent = String(weatherWeekData[index]).slice(0, 4);
+        item.textContent = weatherWeekData[index].toFixed(0) + '℃';
       }
     });
   }
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  getAndRenderWeatherFour(
+    refs.weatherWeekSquare,
+    allDayOfWeek,
+    nightMorDayEven,
+    list
+  );
+}
+
+export function getAndRenderWeatherFour(
+  referense,
+  allDayOfWeek,
+  nightMorDayEven,
+  list
+) {
+  let weekData = [];
+  referense.forEach(item => {
+    weekData.push(item);
+  });
+  for (let index = 0; index < allDayOfWeek.length; index += 1) {
+    weekData[index].dataset.calendarData = allDayOfWeek[index];
+  }
+
+  let weatherOnNight;
+  let weatherOnMorning;
+  let weatherOnDay;
+  let weatherOnEvening;
+
+  referense.forEach(item => {
+    if (item.classList.contains('is-active')) {
+      weatherOnNight = `${item.dataset.calendarData} ${nightMorDayEven.night}`;
+      weatherOnMorning = `${item.dataset.calendarData} ${nightMorDayEven.morning}`;
+      weatherOnDay = `${item.dataset.calendarData} ${nightMorDayEven.day}`;
+      weatherOnEvening = `${item.dataset.calendarData} ${nightMorDayEven.evening}`;
+    }
+  });
+  let currentDataNigth = list.find(item => {
+    return item.dt_txt == weatherOnNight;
+  });
+
+  renderWeatherOn4Time(
+    refs.jsNightDataTemp,
+    refs.jsNightDataFeels,
+    refs.jsNightDataMps,
+    refs.jsNightDataHummid,
+    refs.jsNightDataPressure,
+    currentDataNigth
+  );
+
+  let currentDataDay = list.find(item => {
+    return item.dt_txt == weatherOnDay;
+  });
+
+  renderWeatherOn4Time(
+    refs.jsDayDataTemp,
+    refs.jsDayDataFeels,
+    refs.jsDayDataMps,
+    refs.jsDayDataHummid,
+    refs.jsDayDataPressure,
+    currentDataDay
+  );
+
+  let currentDataMorning = list.find(item => {
+    return item.dt_txt == weatherOnMorning;
+  });
+
+  renderWeatherOn4Time(
+    refs.jsMorningDataTemp,
+    refs.jsMorningDataFeels,
+    refs.jsMorningDataMps,
+    refs.jsMorningDataHummid,
+    refs.jsMorningDataPressure,
+    currentDataMorning
+  );
+
+  let currentDataEvening = list.find(item => {
+    return item.dt_txt == weatherOnEvening;
+  });
+
+  renderWeatherOn4Time(
+    refs.jsEveningDataTemp,
+    refs.jsEveningDataFeels,
+    refs.jsEveningDataMps,
+    refs.jsEveningDataHummid,
+    refs.jsEveningDataPressure,
+    currentDataEvening
+  );
+
+  function renderWeatherOn4Time(
+    tempRef,
+    feelsRef,
+    mpsRef,
+    humidityRef,
+    pressureRef,
+    currentData
+  ) {
+    console.log(currentData);
+    if (currentData.main.temp > 0) {
+      tempRef.textContent = '+' + currentData.main.temp.toFixed(0) + '℃';
+    } else {
+      tempRef.textContent = currentData.main.temp.toFixed(0) + '℃';
+    }
+    //Feels like
+    if (currentData.main.feels_like > 0) {
+      feelsRef.textContent = '+' + currentData.main.feels_like.toFixed(0) + '℃';
+    } else {
+      feelsRef.textContent = currentData.main.feels_like.toFixed(0) + '℃';
+    }
+    //wind.speed
+    mpsRef.textContent = currentData.wind.speed;
+    //  main.humidity
+    humidityRef.textContent = currentData.main.humidity;
+    // main.pressure
+    pressureRef.textContent = currentData.main.pressure;
+  }
+}
+
+// ///
+refs.weatherWeekSquare.forEach(item => {
+  item.addEventListener('click', turnIsActive);
+});
+
+export function turnIsActive(event) {
+  refs.weatherWeekSquare.forEach(item => {
+    if (item.classList.contains('is-active')) {
+      item.classList.remove('is-active');
+    }
+  });
+  event.currentTarget.classList.add('is-active');
+
+  getAndRenderWeatherFour(
+    refs.weatherWeekSquare,
+    allDayOfWeek,
+    nightMorDayEven,
+    listFiveDay
+  );
 }

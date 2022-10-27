@@ -209,7 +209,7 @@
 <section class="weather week is-hidden">
   <div class="container">
     <div class="weather-week weather-week-wrap">
-      <button class="weather-week-square is-active">
+      <button class="weather-week-square is-active" data-calendar-data="">
         <p class="weather-week-weekday js-tomorrow-day">Sun</p>
         <p class="weather-week-weekdate">17 October</p>
         <div class="weather-week-img">
@@ -233,7 +233,7 @@
           </div>
         </div>
       </button>
-      <button class="weather-week-square">
+      <button class="weather-week-square" data-calendar-data="">
         <p class="weather-week-weekday">Sun</p>
         <p class="weather-week-weekdate">17 October</p>
         <div class="weather-week-img">
@@ -257,7 +257,7 @@
           </div>
         </div>
       </button>
-      <button class="weather-week-square">
+      <button class="weather-week-square" data-calendar-data="">
         <p class="weather-week-weekday">Sun</p>
         <p class="weather-week-weekdate">17 October</p>
         <div class="weather-week-img">
@@ -281,31 +281,7 @@
           </div>
         </div>
       </button>
-      <button class="weather-week-square">
-        <p class="weather-week-weekday">Sun</p>
-        <p class="weather-week-weekdate">17 October</p>
-        <div class="weather-week-img">
-          <picture>
-            <img
-              class="by-time_icon"
-              srcset="
-                /src/svg/cloud_min-1x.png 1x,
-                /src/svg/cloud_min-2x.png 2x
-              "
-              src="/src/svg/cloud_min-1x.png"
-              alt="weather icon"
-              width="40"
-              height="40"
-            />
-          </picture>
-
-          <div class="weather-week-temp">
-            <p class="weather-week__value js-week-value-min">+12&#xb0;C</p>
-            <p class="weather-week__value js-week-value-max">+22&#xb0;C</p>
-          </div>
-        </div>
-      </button>
-      <button class="weather-week-square">
+      <button class="weather-week-square" data-calendar-data="">
         <p class="weather-week-weekday">Sun</p>
         <p class="weather-week-weekdate">17 October</p>
         <div class="weather-week-img">
@@ -360,25 +336,20 @@
           <svg class="wper-day-svg" width="15" height="15">
             <use href="/src/svg/srite.svg#icon-wind"></use>
           </svg>
-          <p class="wper-day-item__data">1 mps</p>
+          <p class="wper-day-item__datamps">1 mps</p>
         </div>
         <div class="wperday-data wperday-data__pressure">
           <svg class="wper-day-svg" width="15" height="15">
             <use href="/src/svg/srite.svg#icon-liquid"></use>
           </svg>
-          <p class="wper-day-item__data">82 %</p>
+          <p class="wper-day-item__datahumid">82 %</p>
         </div>
-        <div class="wperday-data wperday-data__visibility">
-          <svg class="wper-day-svg" width="15" height="15">
-            <use href="/src/svg/srite.svg#icon-visibl"></use>
-          </svg>
-          <p class="wper-day-item__data">1,4 km</p>
-        </div>
+
         <div class="wperday-data wperday-data__pressure">
           <svg class="wper-day-svg" width="15" height="15">
             <use href="/src/svg/srite.svg#icon-temp"></use>
           </svg>
-          <p class="wper-day-item__data">718 mm</p>
+          <p class="wper-day-item__datapressure">718 mm</p>
         </div>
       </li>
       <li class="wper-day-item">
@@ -397,33 +368,30 @@
               height="40"
             />
           </picture>
-          <p class="wper-day-item__temp">+12℃</p>
+          <p class="wper-day-item__temp js-morning-data-temp">+12℃</p>
           <p class="wper-day-item__feels">Feels like</p>
-          <p class="wper-day-item__feelstemp">+22℃</p>
+          <p class="wper-day-item__feelstemp js-morning-data-feels">+22℃</p>
         </div>
         <div class="wperday-data wperday-data__mps">
           <svg class="wper-day-svg" width="15" height="15">
             <use href="/src/svg/srite.svg#icon-wind"></use>
           </svg>
-          <p class="wper-day-item__data">1 mps</p>
+          <p class="wper-day-item__datamps js-morning-data-mps">1 mps</p>
         </div>
         <div class="wperday-data wperday-data__pressure">
           <svg class="wper-day-svg" width="15" height="15">
             <use href="/src/svg/srite.svg#icon-liquid"></use>
           </svg>
-          <p class="wper-day-item__data">82 %</p>
+          <p class="wper-day-item__datahumid js-morning-data-hummid">82 %</p>
         </div>
-        <div class="wperday-data wperday-data__visibility">
-          <svg class="wper-day-svg" width="15" height="15">
-            <use href="/src/svg/srite.svg#icon-visibl"></use>
-          </svg>
-          <p class="wper-day-item__data">1,4 km</p>
-        </div>
+
         <div class="wperday-data wperday-data__pressure">
           <svg class="wper-day-svg" width="15" height="15">
             <use href="/src/svg/srite.svg#icon-temp"></use>
           </svg>
-          <p class="wper-day-item__data">718 mm</p>
+          <p class="wper-day-item__datapressure js-morning-data-pressure">
+            718 mm
+          </p>
         </div>
       </li>
       <li class="wper-day-item">
@@ -442,33 +410,28 @@
               height="40"
             />
           </picture>
-          <p class="wper-day-item__temp">+12℃</p>
+          <p class="wper-day-item__temp js-day-data-temp">+12℃</p>
           <p class="wper-day-item__feels">Feels like</p>
-          <p class="wper-day-item__feelstemp">+22℃</p>
+          <p class="wper-day-item__feelstemp js-day-data-feels">+22℃</p>
         </div>
         <div class="wperday-data wperday-data__mps">
           <svg class="wper-day-svg" width="15" height="15">
             <use href="/src/svg/srite.svg#icon-wind"></use>
           </svg>
-          <p class="wper-day-item__data">1 mps</p>
+          <p class="wper-day-item__datamps js-day-data-mps">1 mps</p>
         </div>
         <div class="wperday-data wperday-data__pressure">
           <svg class="wper-day-svg" width="15" height="15">
             <use href="/src/svg/srite.svg#icon-liquid"></use>
           </svg>
-          <p class="wper-day-item__data">82 %</p>
+          <p class="wper-day-item__datahumid js-day-data-hummid">82 %</p>
         </div>
-        <div class="wperday-data wperday-data__visibility">
-          <svg class="wper-day-svg" width="15" height="15">
-            <use href="/src/svg/srite.svg#icon-visibl"></use>
-          </svg>
-          <p class="wper-day-item__data">1,4 km</p>
-        </div>
+
         <div class="wperday-data wperday-data__pressure">
           <svg class="wper-day-svg" width="15" height="15">
             <use href="/src/svg/srite.svg#icon-temp"></use>
           </svg>
-          <p class="wper-day-item__data">718 mm</p>
+          <p class="wper-day-item__datapressure js-day-data-pressure">718 mm</p>
         </div>
       </li>
       <li class="wper-day-item">
@@ -487,33 +450,30 @@
               height="40"
             />
           </picture>
-          <p class="wper-day-item__temp">+12℃</p>
+          <p class="wper-day-item__temp js-evening-data-temp">+12℃</p>
           <p class="wper-day-item__feels">Feels like</p>
-          <p class="wper-day-item__feelstemp">+22℃</p>
+          <p class="wper-day-item__feelstemp js-evening-data-feels">+22℃</p>
         </div>
         <div class="wperday-data wperday-data__mps">
           <svg class="wper-day-svg" width="15" height="15">
             <use href="/src/svg/srite.svg#icon-wind"></use>
           </svg>
-          <p class="wper-day-item__data">1 mps</p>
+          <p class="wper-day-item__datamps js-evening-data-mps">1 mps</p>
         </div>
         <div class="wperday-data wperday-data__pressure">
           <svg class="wper-day-svg" width="15" height="15">
             <use href="/src/svg/srite.svg#icon-liquid"></use>
           </svg>
-          <p class="wper-day-item__data">82 %</p>
+          <p class="wper-day-item__datahumid js-evening-data-hummid">82 %</p>
         </div>
-        <div class="wperday-data wperday-data__visibility">
-          <svg class="wper-day-svg" width="15" height="15">
-            <use href="/src/svg/srite.svg#icon-visibl"></use>
-          </svg>
-          <p class="wper-day-item__data">1,4 km</p>
-        </div>
+
         <div class="wperday-data wperday-data__pressure">
           <svg class="wper-day-svg" width="15" height="15">
             <use href="/src/svg/srite.svg#icon-temp"></use>
           </svg>
-          <p class="wper-day-item__data">718 mm</p>
+          <p class="wper-day-item__datapressure js-evening-data-pressure">
+            718 mm
+          </p>
         </div>
       </li>
     </ul>

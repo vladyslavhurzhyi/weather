@@ -20,4 +20,29 @@ export const refs = {
   jsTomorrowDay: document.querySelector('.js-tomorrow-day'),
   weatherWeekWeekdate: document.querySelectorAll('.weather-week-weekdate'),
   jsWeekValueMin: document.querySelectorAll('.js-week-value-min'),
+  weatherWeekSquare: document.querySelectorAll('.weather-week-square'),
+  //
+  jsNightDataTemp: document.querySelector('.wper-day-item__temp'),
+  jsNightDataFeels: document.querySelector('.wper-day-item__feelstemp'),
+  jsNightDataMps: document.querySelector('.wper-day-item__datamps'),
+  jsNightDataHummid: document.querySelector('.wper-day-item__datahumid'),
+  jsNightDataPressure: document.querySelector('.wper-day-item__datapressure'),
+  //
+  jsMorningDataTemp: document.querySelector('.js-morning-data-temp'),
+  jsMorningDataFeels: document.querySelector('.js-morning-data-feels'),
+  jsMorningDataMps: document.querySelector('.js-morning-data-mps'),
+  jsMorningDataHummid: document.querySelector('.js-morning-data-hummid'),
+  jsMorningDataPressure: document.querySelector('.js-morning-data-pressure'),
+  ///
+  jsDayDataTemp: document.querySelector('.js-day-data-temp'),
+  jsDayDataFeels: document.querySelector('.js-day-data-feels'),
+  jsDayDataMps: document.querySelector('.js-day-data-mps'),
+  jsDayDataHummid: document.querySelector('.js-day-data-hummid'),
+  jsDayDataPressure: document.querySelector('.js-day-data-pressure'),
+  //
+  jsEveningDataTemp: document.querySelector('.js-evening-data-temp'),
+  jsEveningDataFeels: document.querySelector('.js-evening-data-feels'),
+  jsEveningDataMps: document.querySelector('.js-evening-data-mps'),
+  jsEveningDataHummid: document.querySelector('.js-evening-data-hummid'),
+  jsEveningDataPressure: document.querySelector('.js-evening-data-pressure'),
 };
