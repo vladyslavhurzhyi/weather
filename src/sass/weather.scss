@@ -454,9 +454,8 @@
   }
 }
 
-.weather-week {
-  display: flex;
-  flex-wrap: nowrap;
+.weather-week,
+.by-timeweather {
   overflow: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
