@@ -238,6 +238,10 @@
   display: none;
 }
 
+.by-timeweather::-webkit-scrollbar {
+  display: none;
+}
+
 @media screen and (min-width: $breakpoint480) {
   .weather-week {
     justify-content: space-around;
@@ -452,11 +456,4 @@
   100% {
     opacity: 0;
   }
-}
-
-.weather-week,
-.by-timeweather {
-  overflow: auto;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }
