@@ -29,6 +29,8 @@ async function weatherNow() {
     const data = await weatherApi.getWeatherNow();
     await weatherFiveDay();
 
+    renderIconMain(data);
+
     refs.searchFormRef.reset();
 
     isHiddenOff();
@@ -331,4 +333,25 @@ export function turnIsActive(event) {
     nightMorDayEven,
     listFiveDay
   );
+}
+
+////
+export function renderIconMain(data) {
+  console.log(data);
+
+  let icon = data.weather[0].icon;
+
+  switch (icon) {
+    case '01d':
+      break;
+
+    default:
+      refs.mainIcon.setAttribute(
+        'srcset',
+        'src/svg/01n-1x.png 1x, src/svg/01n-1x.png 2x'
+      );
+      break;
+  }
+
+  console.log(refs.mainIcon.attributes);
 }

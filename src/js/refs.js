@@ -45,4 +45,5 @@ export const refs = {
   jsEveningDataMps: document.querySelector('.js-evening-data-mps'),
   jsEveningDataHummid: document.querySelector('.js-evening-data-hummid'),
   jsEveningDataPressure: document.querySelector('.js-evening-data-pressure'),
+  mainIcon: document.querySelector('.sunny_icon'),
 };
