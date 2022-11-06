@@ -346,10 +346,7 @@ export function renderIconMain(data) {
       break;
 
     default:
-      refs.mainIcon.setAttribute(
-        'srcset',
-        'src/svg/01n-1x.png 1x, src/svg/01n-1x.png 2x'
-      );
+      refs.mainIcon.setAttribute('srcset', '01n-1x.png 1x, 01n-1x.png 2x');
       break;
   }
 
