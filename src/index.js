@@ -2,6 +2,7 @@ import { format, add, parseISO } from 'date-fns';
 import { WeatherAPI } from './js/API';
 import { setupDate } from './js/date';
 import { refs } from './js/refs';
+import iconNight from './svg/01n-1x.png';
 
 const weatherApi = new WeatherAPI();
 //
@@ -343,10 +344,11 @@ export function renderIconMain(data) {
 
   switch (icon) {
     case '01d':
+      //////
       break;
 
     default:
-      refs.mainIcon.setAttribute('srcset', '01n-1x.png 1x, 01n-1x.png 2x');
+      refs.mainIcon.setAttribute('srcset', `${iconNight}`);
       break;
   }
 
