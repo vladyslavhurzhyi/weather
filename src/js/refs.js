@@ -16,6 +16,7 @@ export const refs = {
   notifyRef: document.querySelector('.notify'),
   byTimeHours: document.querySelectorAll('.by-time_hours'),
   byTimeTemp: document.querySelectorAll('.by-time_temp'),
+  byTimeIcon: document.querySelectorAll('.by-time_icon'),
   weatherWeekWeekday: document.querySelectorAll('.weather-week-weekday'),
   jsTomorrowDay: document.querySelector('.js-tomorrow-day'),
   weatherWeekWeekdate: document.querySelectorAll('.weather-week-weekdate'),
@@ -46,4 +47,11 @@ export const refs = {
   jsEveningDataHummid: document.querySelector('.js-evening-data-hummid'),
   jsEveningDataPressure: document.querySelector('.js-evening-data-pressure'),
   mainIcon: document.querySelector('.sunny_icon'),
+  //
+  jsWeekIcon: document.querySelectorAll('.js-week-icon'),
+  //
+  jsIconNight: document.querySelector('.js-icon-night'),
+  jsIconMorning: document.querySelector('.js-icon-morning'),
+  jsIconEvening: document.querySelector('.js-icon-evening'),
+  jsIconDay: document.querySelector('.js-icon-day'),
 };
