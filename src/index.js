@@ -57,7 +57,7 @@ async function weatherNow() {
     const data = await weatherApi.getWeatherNow();
     await weatherFiveDay();
 
-    renderIconMain(data, refs.mainIcon);
+    renderIconMain(data.weather[0].icon, refs.mainIcon);
 
     refs.searchFormRef.reset();
 
@@ -169,7 +169,7 @@ export function renderIconOnHour(list) {
 
 
   
-  const icon = [];
+  let icon = [];
 
   for (let index = 0; index < 8; index += 1) {
     let newIcon = [];
@@ -179,7 +179,7 @@ export function renderIconOnHour(list) {
     icon.push(newIcon);
   }
 
-const iconData = icon[0].slice(0, 7);
+ let iconData = icon[0].slice(0, 7);
 
   
 
@@ -421,18 +421,10 @@ export function turnIsActive(event) {
 ////
 export function renderIconMain(data, refsIcon) {
 
-  let icon;
-  if (typeof data === Object) {
+  switch (data) {
     
- icon = data.weather[0].icon;  
-  } else {
-    
-   icon = data;
-  }
-  
-
-  switch (icon) {
     case '01d':
+      
       refsIcon.setAttribute(
         'srcset',
         `${icon01d + ' 1x,' + icon01d + ' 2x'}`
