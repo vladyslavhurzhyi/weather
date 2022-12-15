@@ -53,6 +53,7 @@ refs.searchFormRef.addEventListener('submit', handleSubmit);
 
 async function weatherNow() {
   try {
+       refs.searchSectionRef.classList.add('searchOnTop');
     refs.spinnerRef.classList.remove('is-hidden');
     const data = await weatherApi.getWeatherNow();
     await weatherFiveDay();
@@ -62,7 +63,7 @@ async function weatherNow() {
     refs.searchFormRef.reset();
 
     isHiddenOff();
-    refs.searchSectionRef.classList.add('searchOnTop');
+ 
     deleteBlur();
 
     const { name, main, weather, wind } = data;
