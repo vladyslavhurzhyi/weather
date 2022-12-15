@@ -57,7 +57,7 @@ async function weatherNow() {
     const data = await weatherApi.getWeatherNow();
     await weatherFiveDay();
 
-    renderIconMain(data.weather[0].icon, refs.mainIcon);
+    renderIconMainAndBg(data.weather[0].icon, refs.mainIcon);
 
     refs.searchFormRef.reset();
 
@@ -421,10 +421,12 @@ export function turnIsActive(event) {
 ////
 export function renderIconMain(data, refsIcon) {
 
+
+
+
   switch (data) {
     
     case '01d':
-      
       refsIcon.setAttribute(
         'srcset',
         `${icon01d + ' 1x,' + icon01d + ' 2x'}`
@@ -432,6 +434,7 @@ export function renderIconMain(data, refsIcon) {
       break;
 
     case '01n':
+    
       refsIcon.setAttribute(
         'srcset',
         `${icon01n + ' 1x,' + icon01n + ' 2x'}`
@@ -446,6 +449,7 @@ export function renderIconMain(data, refsIcon) {
       break;
 
     case '02n':
+  
       refsIcon.setAttribute(
         'srcset',
         `${icon02n + ' 1x,' + icon02n + ' 2x'}`
@@ -460,6 +464,7 @@ export function renderIconMain(data, refsIcon) {
       break;
 
     case '03n':
+
       refsIcon.setAttribute(
         'srcset',
         `${icon03dn + ' 1x,' + icon03dn + ' 2x'}`
@@ -474,6 +479,7 @@ export function renderIconMain(data, refsIcon) {
       break;
 
     case '04n':
+  
       refsIcon.setAttribute(
         'srcset',
         `${icon03dn + ' 1x,' + icon03dn + ' 2x'}`
@@ -481,6 +487,7 @@ export function renderIconMain(data, refsIcon) {
       break;
 
     case '09d':
+    
       refsIcon.setAttribute(
         'srcset',
         `${icon09dn + ' 1x,' + icon09dn + ' 2x'}`
@@ -488,6 +495,7 @@ export function renderIconMain(data, refsIcon) {
       break;
 
     case '09n':
+
       refsIcon.setAttribute(
         'srcset',
         `${icon09dn + ' 1x,' + icon09dn + ' 2x'}`
@@ -502,6 +510,7 @@ export function renderIconMain(data, refsIcon) {
       break;
 
     case '10n':
+
       refsIcon.setAttribute(
         'srcset',
         `${icon09dn + ' 1x,' + icon09dn + ' 2x'}`
@@ -516,6 +525,7 @@ export function renderIconMain(data, refsIcon) {
       break;
 
     case '11n':
+    
       refsIcon.setAttribute(
         'srcset',
         `${icon11dn + ' 1x,' + icon11dn + ' 2x'}`
@@ -523,6 +533,7 @@ export function renderIconMain(data, refsIcon) {
       break;
 
     case '13d':
+  
       refsIcon.setAttribute(
         'srcset',
         `${icon13dn + ' 1x,' + icon13dn + ' 2x'}`
@@ -530,6 +541,153 @@ export function renderIconMain(data, refsIcon) {
       break;
 
     case '13n':
+      refsIcon.setAttribute(
+        'srcset',
+        `${icon13dn + ' 1x,' + icon13dn + ' 2x'}`
+      );
+      break;
+
+    default:
+      refsIcon.setAttribute(
+        'srcset',
+        `${icon03dn + ' 1x,' + icon03dn + ' 2x'}`
+      );
+      break;
+  }
+}
+
+
+
+
+///render icon main + bg
+
+export function renderIconMainAndBg(data, refsIcon) {
+
+  refs.mainWeatherNow.classList.remove("bgNightRain", "bgNight", "bgSnow")
+  switch (data) {
+    
+    case '01d':
+      refs.mainWeatherNow.classList.add("bgDay")
+      refsIcon.setAttribute(
+        'srcset',
+        `${icon01d + ' 1x,' + icon01d + ' 2x'}`
+      );
+      break;
+
+    case '01n':
+      refs.mainWeatherNow.classList.add("bgNight")
+      refsIcon.setAttribute(
+        'srcset',
+        `${icon01n + ' 1x,' + icon01n + ' 2x'}`
+      );
+      break;
+
+    case '02d':
+      refs.mainWeatherNow.classList.add("bgDay")
+      refsIcon.setAttribute(
+        'srcset',
+        `${icon02d + ' 1x,' + icon02d + ' 2x'}`
+      );
+      break;
+
+    case '02n':
+      refs.mainWeatherNow.classList.add("bgNight")
+      refsIcon.setAttribute(
+        'srcset',
+        `${icon02n + ' 1x,' + icon02n + ' 2x'}`
+      );
+      break;
+
+    case '03d':
+      refs.mainWeatherNow.classList.add("bgDay")
+      refsIcon.setAttribute(
+        'srcset',
+        `${icon03dn + ' 1x,' + icon03dn + ' 2x'}`
+      );
+      break;
+
+    case '03n':
+      refs.mainWeatherNow.classList.add("bgNight")
+      refsIcon.setAttribute(
+        'srcset',
+        `${icon03dn + ' 1x,' + icon03dn + ' 2x'}`
+      );
+      break;
+
+    case '04d':
+      refs.mainWeatherNow.classList.add("bgDay")
+      refsIcon.setAttribute(
+        'srcset',
+        `${icon03dn + ' 1x,' + icon03dn + ' 2x'}`
+      );
+      break;
+
+    case '04n':
+         refs.mainWeatherNow.classList.add("bgNight")
+      refsIcon.setAttribute(
+        'srcset',
+        `${icon03dn + ' 1x,' + icon03dn + ' 2x'}`
+      );
+      break;
+
+    case '09d':
+    refs.mainWeatherNow.classList.add("bgDay")
+      refsIcon.setAttribute(
+        'srcset',
+        `${icon09dn + ' 1x,' + icon09dn + ' 2x'}`
+      );
+      break;
+
+    case '09n':
+      refs.mainWeatherNow.classList.add("bgNightRain")
+      refsIcon.setAttribute(
+        'srcset',
+        `${icon09dn + ' 1x,' + icon09dn + ' 2x'}`
+      );
+      break;
+
+    case '10d':
+      refs.mainWeatherNow.classList.add("bgDay")
+      refsIcon.setAttribute(
+        'srcset',
+        `${icon09dn + ' 1x,' + icon09dn + ' 2x'}`
+      );
+      break;
+
+    case '10n':
+           refs.mainWeatherNow.classList.add("bgNightRain")
+      refsIcon.setAttribute(
+        'srcset',
+        `${icon09dn + ' 1x,' + icon09dn + ' 2x'}`
+      );
+      break;
+
+    case '11d':
+      refs.mainWeatherNow.classList.add("bgDayRain")
+      refsIcon.setAttribute(
+        'srcset',
+        `${icon11dn + ' 1x,' + icon11dn + ' 2x'}`
+      );
+      break;
+
+    case '11n':
+      refs.mainWeatherNow.classList.add("bgNightRain")
+      refsIcon.setAttribute(
+        'srcset',
+        `${icon11dn + ' 1x,' + icon11dn + ' 2x'}`
+      );
+      break;
+
+    case '13d':
+       refs.mainWeatherNow.classList.add("bgSnow")
+      refsIcon.setAttribute(
+        'srcset',
+        `${icon13dn + ' 1x,' + icon13dn + ' 2x'}`
+      );
+      break;
+
+    case '13n':
+      refs.mainWeatherNow.classList.add("bgSnow")
       refsIcon.setAttribute(
         'srcset',
         `${icon13dn + ' 1x,' + icon13dn + ' 2x'}`
