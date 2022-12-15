@@ -398,7 +398,7 @@
 
 .loader {
   position: absolute;
-    top: 30%;
+    top: 37%;
     left: 45%;
   --r1: 154%;
   --r2: 68.5%;
@@ -413,6 +413,9 @@
   background-position: -100% 0%, 0% 0%, 100% 0%;
   background-repeat: no-repeat;
   animation: progress-mbj53w 2s infinite linear;
+}
+@media screen and (min-width: $breakpoint992) {
+      .loader {left: 49%;}
 }
 
 @keyframes progress-mbj53w {
