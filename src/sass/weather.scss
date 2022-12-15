@@ -369,69 +369,6 @@
   filter: blur(8px);
 }
 
-.loader {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-20px, -50px);
-  width: 48px;
-  height: 48px;
-  display: block;
-  margin: 20px auto;
-  box-sizing: border-box;
-  // position: relative;
-}
-.loader::after {
-  content: '';
-  box-sizing: border-box;
-  width: 48px;
-  height: 48px;
-  left: 0;
-  bottom: 0;
-  position: absolute;
-  border-radius: 50% 50% 0;
-  border: 15px solid #fff;
-  transform: rotate(45deg) translate(0, 0);
-  box-sizing: border-box;
-  animation: animMarker 0.4s ease-in-out infinite alternate;
-}
-.loader::before {
-  content: '';
-  box-sizing: border-box;
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: auto;
-  top: 150%;
-  width: 24px;
-  height: 4px;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.2);
-  animation: animShadow 0.4s ease-in-out infinite alternate;
-}
-
-@keyframes animMarker {
-  0% {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-  100% {
-    transform: rotate(45deg) translate(-5px, -5px);
-  }
-}
-
-@keyframes animShadow {
-  0% {
-    transform: scale(0.5);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-.is-hidden {
-  display: none;
-}
-
 // _______notify_____
 
 .notify {
@@ -456,4 +393,45 @@
   100% {
     opacity: 0;
   }
+}
+
+
+.loader {
+  position: absolute;
+    top: 30%;
+    left: 45%;
+  --r1: 154%;
+  --r2: 68.5%;
+  width: 67.2px;
+  height: 67.2px;
+  border-radius: 50%;
+  background: radial-gradient(var(--r1) var(--r2) at top, #0000 79.5%, #2189e4 80%) center left,
+    radial-gradient(var(--r1) var(--r2) at bottom, #2189e4 79.5%, #0000 80%) center center,
+    radial-gradient(var(--r1) var(--r2) at top, #0000 79.5%, #2189e4 80%) center right,
+    #dbdcef;
+  background-size: 50.5% 220%;
+  background-position: -100% 0%, 0% 0%, 100% 0%;
+  background-repeat: no-repeat;
+  animation: progress-mbj53w 2s infinite linear;
+}
+
+@keyframes progress-mbj53w {
+  33% {
+    background-position: 0% 33%, 100% 33%, 200% 33%;
+  }
+
+  66% {
+    background-position: -100% 66%, 0% 66%, 100% 66%;
+  }
+
+  100% {
+    background-position: 0% 100%, 100% 100%, 200% 100%;
+  }
+}
+
+
+
+
+.is-hidden {
+  display: none;
 }

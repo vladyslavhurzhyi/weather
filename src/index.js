@@ -1,4 +1,4 @@
-import { format, add, parseISO,toDate } from 'date-fns';
+import { format, add, parseISO, } from 'date-fns';
 import { WeatherAPI } from './js/API';
 import { setupDate } from './js/date';
 import { refs } from './js/refs';
@@ -53,6 +53,7 @@ refs.searchFormRef.addEventListener('submit', handleSubmit);
 
 async function weatherNow() {
   try {
+    refs.spinnerRef.classList.remove('is-hidden');
     const data = await weatherApi.getWeatherNow();
     await weatherFiveDay();
 
@@ -115,7 +116,7 @@ function deleteBlur() {
 }
 
 export function isHiddenOff() {
-  refs.spinnerRef.classList.remove('is-hidden');
+  
   refs.wperDayRef.classList.remove('is-hidden');
   refs.weatherWeekRef.classList.remove('is-hidden');
 }
@@ -372,7 +373,7 @@ export function getAndRenderWeatherFour(
     iconRef
   ) {
 
-    
+
     renderIconMain(currentData.weather[0].icon, iconRef)
     
 
@@ -420,10 +421,13 @@ export function turnIsActive(event) {
 ////
 export function renderIconMain(data, refsIcon) {
 
+  let icon;
   if (typeof data === Object) {
-  let icon = data.weather[0].icon;  
+    
+ icon = data.weather[0].icon;  
   } else {
-    icon = data;
+    
+   icon = data;
   }
   
 
