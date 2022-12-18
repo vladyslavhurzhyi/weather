@@ -55,4 +55,5 @@ export const refs = {
   jsIconMorning: document.querySelector('.js-icon-morning'),
   jsIconEvening: document.querySelector('.js-icon-evening'),
   jsIconDay: document.querySelector('.js-icon-day'),
+  snow: document.querySelector('.snow'),
 };

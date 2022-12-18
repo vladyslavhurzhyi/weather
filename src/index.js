@@ -1,3 +1,4 @@
+export * from "./snow/snow";
 import { format, add, parseISO, } from 'date-fns';
 import { WeatherAPI } from './js/API';
 import { setupDate } from './js/date';
@@ -423,8 +424,6 @@ export function turnIsActive(event) {
 export function renderIconMain(data, refsIcon) {
 
 
-
-
   switch (data) {
     
     case '01d':
@@ -564,6 +563,7 @@ export function renderIconMain(data, refsIcon) {
 
 export function renderIconMainAndBg(data, refsIcon) {
 
+  refs.snow.classList.add("is-hidden")
   refs.mainWeatherNow.classList.remove("bgNightRain", "bgNight", "bgSnow")
   switch (data) {
     
@@ -680,6 +680,7 @@ export function renderIconMainAndBg(data, refsIcon) {
       break;
 
     case '13d':
+     refs.snow.classList.remove("is-hidden")
        refs.mainWeatherNow.classList.add("bgSnow")
       refsIcon.setAttribute(
         'srcset',
@@ -688,6 +689,7 @@ export function renderIconMainAndBg(data, refsIcon) {
       break;
 
     case '13n':
+      refs.snow.classList.remove("is-hidden")
       refs.mainWeatherNow.classList.add("bgSnow")
       refsIcon.setAttribute(
         'srcset',
