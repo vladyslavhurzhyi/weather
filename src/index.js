@@ -17,6 +17,9 @@ const weatherApi = new WeatherAPI();
 setupDate();
 //
 
+
+
+
 export const iconWeather = [
   { id: '01d', name: icon01d },
   { id: '01n', name: icon01n },
@@ -58,6 +61,7 @@ async function weatherNow() {
     refs.spinnerRef.classList.remove('is-hidden');
     const data = await weatherApi.getWeatherNow();
     await weatherFiveDay();
+
 
     renderIconMainAndBg(data.weather[0].icon, refs.mainIcon);
 
@@ -132,10 +136,8 @@ export function renderTimeOnHour(data) {
   const timeZone = city.timezone;
 
 
-
   const time = list.map((item => {
-    
-    
+
     return format(new Date((item.dt-timeZone)*1000), "HH-mm"); 
   }))
   const timeOnPage = time.slice(0, 7);
@@ -215,6 +217,7 @@ let list;
 ///////
 
 export function renderWeekData(list) {
+
   const weekDay = [];
   refs.weatherWeekWeekday.forEach(day => {
     weekDay.push(day.textContent);
@@ -288,6 +291,8 @@ export function getAndRenderWeatherFour(
   nightMorDayEven,
   list
 ) {
+
+
   let weekData = [];
   referense.forEach(item => {
     weekData.push(item);

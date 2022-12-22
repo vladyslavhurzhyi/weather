@@ -149,7 +149,7 @@
   flex-wrap: nowrap;
   overflow-x: auto;
   margin-left: 23px;
-
+  z-index: 10;
   overflow: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -232,6 +232,7 @@
   overflow: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  z-index: 10;
 }
 
 .weather-week::-webkit-scrollbar {
